@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 180 100% 50%; /* Neon Cyan */
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 270 100% 60%; /* Neon Purple */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 300 100% 50%; /* Neon Pink/Magenta */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+    --chart-1: 180 100% 50%;
+    --chart-2: 270 100% 60%;
+    --chart-3: 300 100% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* Task 2 Variables */
+    --bg-primary: #000000;
+    --text-main: #F5F5F5;
+    --bg-secondary: #000033; /* Deep Navy */
+    --link-color: #4169E1;   /* Royal Blue */
+    --accent: #FFD700;       /* Gold */
+  }
+
+  .dark {
+    --background: 260 50% 5%; /* Deep Navy/Black */
+    --foreground: 0 0% 98%;
+    --card: 260 50% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 50% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 180 100% 50%; /* Neon Cyan */
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 270 100% 60%; /* Neon Purple */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 300 100% 50%; /* Neon Pink/Magenta */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 180 100% 50%;
+    --chart-1: 180 100% 50%;
+    --chart-2: 270 100% 60%;
+    --chart-3: 300 100% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Print Styles for Resume Page */
+@media print {
+  header {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  @page {
+    margin: 1cm;
+  }
+}
+
+/* Custom layout styles */
+body {
+  background-color: var(--bg-primary); /* Pure black for that high-end look */
+  color: var(--text-main);             /* Off-white/Cream for readability */
+  font-family: 'Inter', sans-serif;    /* Or your preferred clean font */
+}
+
+header, footer, .card {
+  background-color: var(--bg-secondary); /* Deep Navy for structural blocks */
+  border-bottom: 1px solid #222;        /* Subtle separation */
+}
+
+/* Links and Interactive Elements */
+a {
+  color: var(--link-color); /* Royal Blue */
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--accent);     /* Transitions to Gold on hover */
+}
+
+/* Call to Action (Buttons) */
+.btn-primary {
+  background-color: var(--accent);      /* Gold for the most important buttons */
+  color: var(--bg-primary);             /* Black text on gold is very legible */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  border: 2px solid var(--accent);      /* Outlined gold button */
+  color: var(--accent);
+  background: transparent;
+}
