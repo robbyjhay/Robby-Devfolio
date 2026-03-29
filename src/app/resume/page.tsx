@@ -6,23 +6,31 @@ import {
   Github,
   Linkedin,
   Mail,
-  Phone,
   GraduationCap,
   Briefcase,
   Award,
   Code,
   ExternalLink,
   Trophy,
+  Eye,
 } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import {
   name as devName,
   education,
   experience,
   resumeSkills,
   resumeProjects,
-  resumeCertDetails,
+  certifications,
   achievements,
 } from '@/lib/data';
+import Image from 'next/image';
 
 export default function ResumePage() {
   return (
@@ -35,7 +43,7 @@ export default function ResumePage() {
           </h1>
           <p className="text-sm mt-2 text-primary/80">Full-Stack Developer | Computer Science Student | AI & Web Systems Enthusiast</p>
           <div className="absolute top-0 right-0 print:hidden">
-            <a href="/resume.pdf" download="Okikioluwa_Robert_Jefferson_Resume.pdf">
+            <a href="/Okikioluwa Jefferson CV.pdf" download="Okikioluwa Jefferson CV.pdf">
               <Button
                 variant="outline"
                 size="icon"
@@ -89,10 +97,10 @@ export default function ResumePage() {
               <Code /> Technical Skills
             </h2>
             <div className="space-y-3">
-              {resumeSkills.map((skill) => (
-                <div key={skill.category} className="grid grid-cols-1 md:grid-cols-4 gap-1 text-sm">
-                  <strong className="md:col-span-1 text-foreground">{skill.category}:</strong>
-                  <p className="md:col-span-3 text-muted-foreground">{skill.items}</p>
+              {resumeSkills.map((skill, index) => (
+                <div key={index} className="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-2">
+                  <span className="font-medium text-foreground">{skill.category}:</span>
+                  <span className="text-muted-foreground">{skill.items}</span>
                 </div>
               ))}
             </div>
@@ -143,36 +151,62 @@ export default function ResumePage() {
             </div>
           </section>
 
-          {/* Certifications */}
+          {/* Certifications & Achievements */}
           <section>
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-primary border-b border-border/50 pb-2 print:border-black">
-              <Award /> Certifications &amp; Simulations
+              <Award /> Certifications & Achievements
             </h2>
-            <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground pl-2">
-              {resumeCertDetails.map((cert, index) => (
-                <li key={index}>
-                  <strong>{cert.label}:</strong> {cert.text}
-                  {cert.link && (
-                    <a href={cert.link} target="_blank" rel="noopener noreferrer" className="text-accent-foreground hover:text-primary ml-2">[Link]</a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Achievements */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-primary border-b border-border/50 pb-2 print:border-black">
-              <Trophy /> Achievements
-            </h2>
-            <div className="space-y-4">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="space-y-1">
-                  <h3 className="text-lg font-semibold text-foreground">{achievement.title}</h3>
-                  <p className="text-sm text-muted-foreground">{achievement.organization}</p>
-                  <p className="text-sm text-muted-foreground">{achievement.description}</p>
-                </div>
-              ))}
+            <div className="space-y-6">
+              {/* Combine and Sort Chronologically */}
+              {[
+                ...certifications.map(c => ({ ...c, type: 'Certification', title: c.name, subtitle: c.issuer })),
+                ...achievements.map(a => ({ ...a, type: 'Achievement', title: a.title, subtitle: a.organization }))
+              ]
+                .sort((a, b) => {
+                  if (a.date.includes('2026')) return -1;
+                  if (b.date.includes('2026')) return 1;
+                  if (a.date === 'Ongoing') return 1;
+                  if (b.date === 'Ongoing') return -1;
+                  return b.date.localeCompare(a.date);
+                })
+                .map((item, index) => (
+                  <div key={index} className="flex justify-between items-start group border-l-2 border-primary/20 pl-4 py-1">
+                    <div className="space-y-1">
+                      <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.subtitle} | {item.date}</p>
+                      <p className="text-sm text-muted-foreground/80">{item.description}</p>
+                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Eye className="h-5 w-5" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-md bg-card/95 backdrop-blur-md border-primary/20">
+                        <DialogHeader>
+                          <DialogTitle className="text-primary">{item.title}</DialogTitle>
+                        </DialogHeader>
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">{item.description}</p>
+                          {item.previewImage && (
+                            <div className="relative aspect-video rounded-lg overflow-hidden border border-border">
+                              <Image
+                                src={item.previewImage}
+                                alt={item.title}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          )}
+                          <div className="flex justify-between text-xs text-primary/60">
+                            <span>{item.subtitle}</span>
+                            <span>{item.date}</span>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                ))}
             </div>
           </section>
         </div>

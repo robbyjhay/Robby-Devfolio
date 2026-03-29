@@ -2,7 +2,7 @@
 
 A modern, responsive developer portfolio built with Next.js 15, TypeScript, and Tailwind CSS. This portfolio showcases projects, skills, and provides a professional online presence.
 
-🌐 **Live Demo**: [https://devesh.co.in](https://devesh.co.in/)
+🌐 **Live Demo**: [https://robby-devfolio.vercel.app/](https://robby-devfolio.vercel.app/)
 
 ## 🚀 Features
 
@@ -45,9 +45,10 @@ A modern, responsive developer portfolio built with Next.js 15, TypeScript, and 
 
 ### Projects Section
 Featured projects include:
-1. **E-Commerce Platform Backend** - RESTful API with Node.js, Express.js, and MongoDB
-2. **WealthWise AI Finance Platform** - AI-powered finance management with Google Gemini integration
-3. **Portfolio Website** - This very portfolio you're viewing
+1. **DevFolio** - AI-powered personal portfolio with LangGraph and FAISS-based RAG pipeline.
+2. **FaceID Pro** - Advanced facial recognition system using Python, Flask, and dlib.
+3. **Freshies Home & Properties** - Full-stack real estate platform with Node.js and MongoDB.
+4. **AUNAPS School Website** - Responsive platform for Anchor University Nursery and Primary School.
 
 ### Skills Section
 Technical expertise in:
@@ -73,8 +74,8 @@ Technical expertise in:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/deveshyaara/devfolio.git
-   cd devfolio
+   git clone https://github.com/robbyjhay/robby-devfolio.git
+   cd robby-devfolio
    ```
 
 2. **Install dependencies**
@@ -145,15 +146,15 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👨‍💻 Author
 
-**Devesh Tiwari**
-- GitHub: [@deveshyaara](https://github.com/deveshyaara)
-- LinkedIn: [deveshcodes](https://www.linkedin.com/in/deveshcodes)
-- Email: tiwaridewesh234@gmail.com
-- Portfolio: [https://devfolio-taupe.vercel.app/](https://devfolio-taupe.vercel.app/)
+**Okikioluwa Robert Jefferson**
+- GitHub: [@robbyjhay](https://github.com/robbyjhay)
+- LinkedIn: [okikioluwa-jefferson](https://www.linkedin.com/in/okikioluwa-jefferson/)
+- Email: jeffersonokikioluwa@gmail.com
+- Portfolio: [https://robby-devfolio.vercel.app/](https://robby-devfolio.vercel.app/)
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/deveshyaara/devfolio/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/robbyjhay/robby-devfolio/issues).
 
 ## ⭐ Show your support
 

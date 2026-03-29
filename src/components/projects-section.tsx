@@ -41,10 +41,10 @@ function ProjectCard({
         href={project.liveDemoUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="block h-full w-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500 cursor-pointer group"
+        className="block h-full w-full bg-card/50 backdrop-blur-sm border border-primary/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-primary transition-all duration-500 cursor-pointer group"
       >
         {/* Image section */}
-        <div className="relative h-[55%] overflow-hidden">
+        <div className="relative h-[55%] overflow-hidden border-b border-primary/10">
           {projectImage && (
             <Image
               src={projectImage.imageUrl}
@@ -57,47 +57,47 @@ function ProjectCard({
             />
           )}
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
           {/* Action buttons */}
           <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
             <span 
-              className="p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg cursor-pointer"
+              className="p-3 bg-background/90 backdrop-blur-sm rounded-full border border-primary/20 hover:bg-primary/20 hover:scale-110 transition-all duration-200 shadow-lg cursor-pointer text-foreground"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 window.open(project.liveDemoUrl, '_blank');
               }}
             >
-              <ExternalLink className="w-5 h-5 text-gray-800" />
+              <ExternalLink className="w-5 h-5" />
             </span>
             <span 
-              className="p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg cursor-pointer"
+              className="p-3 bg-background/90 backdrop-blur-sm rounded-full border border-primary/20 hover:bg-primary/20 hover:scale-110 transition-all duration-200 shadow-lg cursor-pointer text-foreground"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 window.open(project.repoUrl, '_blank');
               }}
             >
-              <Github className="w-5 h-5 text-gray-800" />
+              <Github className="w-5 h-5" />
             </span>
           </div>
         </div>
 
         {/* Content section */}
-        <div className="p-6 h-[45%] flex flex-col justify-between bg-white">
+        <div className="p-6 h-[45%] flex flex-col justify-between">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-amber-600 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300 font-headline">
               {project.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+            <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 font-body">
               {project.description}
             </p>
           </div>
           
           {/* Bottom pill */}
           <div className="mt-4">
-            <span className="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-xs font-semibold group-hover:bg-amber-200 transition-colors duration-200">
+            <span className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-semibold group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
               View Project →
             </span>
           </div>
@@ -145,15 +145,9 @@ export default function ProjectsSection() {
     <section 
       ref={sectionRef}
       id="projects" 
-      className="w-full min-h-screen py-20 md:py-32 relative overflow-hidden"
-      style={{ backgroundColor: '#FFD700' }}
+      className="py-20 px-4 sm:px-6 lg:px-8 w-full bg-background relative overflow-hidden"
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-300/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-300/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-200/20 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(120,119,198,0.1),transparent_50%)]" />
 
       <div className="container px-4 md:px-6 relative z-10 max-w-7xl mx-auto">
         {/* Header */}
@@ -165,7 +159,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <motion.span 
-            className="inline-block px-4 py-2 bg-black/10 rounded-full text-sm font-medium text-gray-800 mb-6"
+            className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -173,10 +167,10 @@ export default function ProjectsSection() {
           >
             Featured Work
           </motion.span>
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-6">
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-headline bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             My Projects
           </h2>
-          <p className="text-xl text-gray-700/80 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-body">
             A collection of work that showcases my passion for building beautiful, functional experiences.
           </p>
         </motion.div>

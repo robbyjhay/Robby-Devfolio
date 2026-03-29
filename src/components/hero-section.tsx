@@ -55,7 +55,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center order-2 lg:order-2"
+            className="flex items-center justify-center order-1 lg:order-1"
           >
             <div className="relative w-[250px] h-[250px] md:w-[350px] md:h-[350px]">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-3xl opacity-30 animate-pulse" />
@@ -74,7 +74,7 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Text Content */}
-          <div className="flex flex-col justify-center space-y-4 text-center lg:text-left order-1 lg:order-1">
+          <div className="flex flex-col justify-center space-y-4 text-center lg:text-left order-2 lg:order-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
