@@ -1,7 +1,9 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import {
+  ArrowLeft,
   ArrowDownToLine,
   Github,
   Linkedin,
@@ -38,6 +40,17 @@ export default function ResumePage() {
       <main className="w-full max-w-5xl bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl shadow-lg p-8 sm:p-12 print:shadow-none print:border-none print:bg-white print:text-black">
         {/* Header */}
         <header className="relative text-center border-b border-border/50 pb-6 mb-8 print:border-black">
+          <div className="absolute top-0 left-0 print:hidden">
+            <Link href="/#resume">
+              <Button
+                variant="outline"
+                className="bg-card/50 hover:bg-primary/20 gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back</span>
+              </Button>
+            </Link>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent print:text-black print:bg-none">
             {devName}
           </h1>
