@@ -42,8 +42,8 @@ export const projects: Project[] = [
     title: 'FaceID Pro',
     description: 'An advanced facial recognition system using Python, Flask, and dlib. Supports live webcam identification and multi-camera analysis for identity detection.',
     image: 'project-1',
-    liveDemoUrl: '#',
-    repoUrl: 'https://github.com/robbyjhay/faceidpro-v1',
+    liveDemoUrl: 'https://github.com/robbyjhay/faceid-system',
+    repoUrl: 'https://github.com/robbyjhay/faceid-system',
   },
   {
     id: 'project-3',
@@ -203,7 +203,7 @@ export const resumeProjects: ResumeProject[] = [
     name: 'FaceID Pro',
     description: 'An advanced facial recognition system using Python, Flask, and dlib. Supports live webcam identification and multi-camera analysis for identity detection.',
     links: [
-      { name: 'GitHub', url: 'https://github.com/robbyjhay/faceidpro-v1' },
+      { name: 'GitHub', url: 'https://github.com/robbyjhay/faceid-system' },
     ],
   },
   {
